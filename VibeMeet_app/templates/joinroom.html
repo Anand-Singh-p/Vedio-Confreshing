@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Join Room{% endblock %}
+
+{% block content %}
+<div class="join-room-container">
+  <div class="row">
+      <div class="col-md-6">
+          <!-- Your image goes here -->
+          <img src="{% static 'VibeMeet_app/css/src/src.jpg' %}" alt="Video Conference" class="img-fluid increased-size">
+      </div>
+      <div class="col-md-6">
+          <div class="overlay-content">
+              <h1 class="join-room-heading">Join Room</h1>
+              <div class="login-form">
+                  <form action="{% url 'join_room' %}" method="POST" class="join-room-form">
+                      {% csrf_token %}
+                      <input type="text" placeholder="Enter room ID" name="roomID" class="form-control">
+                      <input type="submit" class="btn btn-primary btn-block" value="Join Room">
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
